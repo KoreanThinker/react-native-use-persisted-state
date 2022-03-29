@@ -4,7 +4,6 @@
 [![npm download](https://img.shields.io/npm/dt/react-native-use-persisted-state)](https://www.npmjs.com/package/react-native-use-persisted-state)
 [![License MIT](https://img.shields.io/github/license/KoreanThinker/react-native-use-persisted-state?style=plat)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
-[![Example](https://img.shields.io/badge/example-here!-blue)](https://github.com/krtk-dev/billboard-player)
 ![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FKoreanThinker%2Freact-native-use-persisted-state&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)
 ![Stars](https://img.shields.io/github/stars/KoreanThinker/react-native-use-persisted-state?style=social)
 
@@ -14,9 +13,9 @@
 
 ## Introduce
 
-💾 Cacheable & persistable state in react-native
+💾 Cacheable & persisted state in react-native
 
-🌏 Globally available
+🌏 Globally useable like redux, recoil...
 
 🚀 No loading, Immediate synchronization
 

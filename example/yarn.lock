@@ -5527,10 +5527,10 @@ react-native-codegen@^0.0.8:
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
 
-react-native-use-persisted-state@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/react-native-use-persisted-state/-/react-native-use-persisted-state-0.0.3.tgz#0a9f90dce3e99f65a7f865325bb4fa3bc0ffb72d"
-  integrity sha512-1dL6eMSAWl/OeWm42B6OPCxQRQ0Jv+v1xlenkQviCCpO30KwmW0NMdj2bGqSkV7nbzkcBJwRmhU0JsatBx+76Q==
+react-native-use-persisted-state@1.0.1-rc.0:
+  version "1.0.1-rc.0"
+  resolved "https://registry.yarnpkg.com/react-native-use-persisted-state/-/react-native-use-persisted-state-1.0.1-rc.0.tgz#3e308b111fa4242f2a4e0ce2b8fdcf8df53ec2fe"
+  integrity sha512-jGDHGCXrmVKxUgWjQTzpL2di8SsSr+280nD7oWt12BX9XavPXJo6fnDJG4982cBDw+N6NmnQVHDFKFrb7jG4kg==
 
 react-native@0.67.3:
   version "0.67.3"
