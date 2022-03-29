@@ -1,7 +1,7 @@
 {
   "name": "react-native-use-persisted-state",
   "title": "React Native Use Persisted State",
-  "version": "1.0.0",
+  "version": "1.0.1-rc.0",
   "description": "Cacheable & persistable state in react-native",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
