@@ -11,8 +11,8 @@ const RANDOM_KEY = '@react-native-use-persisted-state';
 
 interface PersistedStateContextType {
   storage: Record<string, any>;
-  updateValue: (key: string, value: any) => void;
-  clearValue: (key: string) => void;
+  setState: (key: string, state: any) => void;
+  clearState: (key: string) => void;
 }
 
 export const PersistedStateContext = createContext<PersistedStateContextType>(
@@ -26,9 +26,9 @@ const PersistedStateProvider: React.FC = ({children}) => {
   useEffect(() => {
     // First init
     (async () => {
-      const value = await AsyncStorage.getItem(RANDOM_KEY);
-      if (value) {
-        setStorage(JSON.parse(value));
+      const state = await AsyncStorage.getItem(RANDOM_KEY);
+      if (state) {
+        setStorage(JSON.parse(state));
       }
       setLoading(false);
     })();
@@ -39,16 +39,16 @@ const PersistedStateProvider: React.FC = ({children}) => {
     AsyncStorage.setItem(RANDOM_KEY, JSON.stringify(storage));
   }, [storage]);
 
-  const updateValue = useCallback((key: string, value: any) => {
+  const setState = useCallback((key: string, state: any) => {
     setStorage((prev) => {
       return {
         ...prev,
-        [key]: value,
+        [key]: state,
       };
     });
   }, []);
 
-  const clearValue = useCallback((key: string) => {
+  const clearState = useCallback((key: string) => {
     setStorage((prev) => {
       const temp = {...prev};
       delete temp[key];
@@ -56,17 +56,17 @@ const PersistedStateProvider: React.FC = ({children}) => {
     });
   }, []);
 
-  const value = useMemo<PersistedStateContextType>(
+  const state = useMemo<PersistedStateContextType>(
     () => ({
       storage,
-      updateValue,
-      clearValue,
+      setState: setState,
+      clearState: clearState,
     }),
-    [storage, updateValue, clearValue],
+    [storage, setState, clearState],
   );
 
   return (
-    <PersistedStateContext.Provider value={value}>
+    <PersistedStateContext.Provider value={state}>
       {loading ? null : children}
     </PersistedStateContext.Provider>
   );

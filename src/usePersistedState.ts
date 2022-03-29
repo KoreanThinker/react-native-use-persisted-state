@@ -1,11 +1,22 @@
 import {useCallback, useContext, useEffect, useMemo} from 'react';
 import {PersistedStateContext} from './PersistedStateProvider';
 
-const usePersistedState = <T>(
+function usePersistedState<T = undefined>(
   key: string,
-  defaultValue: T,
-): [T, (newValue: T) => void, () => void] => {
-  const {clearValue, storage, updateValue} = useContext(PersistedStateContext);
+): [T | undefined, (newState: T | undefined) => void, () => void];
+function usePersistedState<T>(
+  key: string,
+  initialState: T,
+): [T, (newState: T) => void, () => void];
+function usePersistedState<T>(
+  key: string,
+  initialState?: T,
+): [T, (newState: T) => void, () => void] {
+  const {
+    clearState: _clearState,
+    storage,
+    setState: _setState,
+  } = useContext(PersistedStateContext);
 
   useEffect(() => {
     if (typeof key !== 'string') {
@@ -13,21 +24,21 @@ const usePersistedState = <T>(
     }
   }, [key]);
 
-  const value = useMemo<T>(() => {
+  const state = useMemo<T>(() => {
     if (Object.keys(storage).includes(key)) {
       return storage[key];
     }
-    return defaultValue;
-  }, [storage, key, defaultValue]);
+    return initialState;
+  }, [storage, key, initialState]);
 
-  const update = useCallback(
-    (newValue: T) => updateValue(key, newValue),
-    [updateValue, key],
+  const setState = useCallback(
+    (newState) => _setState(key, newState),
+    [_setState, key],
   );
 
-  const clear = useCallback(() => clearValue(key), [key, clearValue]);
+  const clearState = useCallback(() => _clearState(key), [key, _clearState]);
 
-  return [value, update, clear];
-};
+  return [state, setState, clearState];
+}
 
 export default usePersistedState;

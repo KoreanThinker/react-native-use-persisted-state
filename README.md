@@ -14,6 +14,8 @@
 
 🌏 Globally available
 
+🚀 No loading, Immediate synchronization
+
 ---
 
 ## Usage
@@ -69,4 +71,29 @@ const App = () => {
 
 ---
 
-## Api
+## API
+
+### `usePersistedState`
+
+#### Params
+
+```ts
+usePersistedState<T>(key, initialState);
+```
+
+| name         | type     | require | default     | description               |
+| ------------ | -------- | ------- | ----------- | ------------------------- |
+| key          | `string` | ✅      |             | key used to store storage |
+| initialState | `T`      |         | `undefined` |                           |
+
+#### Returns
+
+```ts
+const [state, setState, clear] = usePersistedState<T>(...);
+```
+
+| name     | type            | description                                                 |
+| -------- | --------------- | ----------------------------------------------------------- |
+| state    | `T`             | same as react state `const [state] = useState()`            |
+| setState | `(v:T) => void` | same as react setState `const [..., setState] = useState()` |
+| clear    | `() => void`    | clear storage and init state to `initialState`              |
