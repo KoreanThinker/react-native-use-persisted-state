@@ -34,27 +34,36 @@ const PersistedStateProvider: React.FC = ({children}) => {
     })();
   }, []);
 
-  useEffect(() => {
-    // Storage state migrate to local storage
-    AsyncStorage.setItem(RANDOM_KEY, JSON.stringify(storage));
-  }, [storage]);
+  const setState = useCallback(
+    (key: string, state: any) =>
+      setStorage((prev) => {
+        const newState = {
+          ...prev,
+          [key]: state,
+        };
+        // Storage state migrate to local storage
+        setImmediate(() =>
+          AsyncStorage.setItem(RANDOM_KEY, JSON.stringify(newState)),
+        );
+        return newState;
+      }),
+    [],
+  );
 
-  const setState = useCallback((key: string, state: any) => {
-    setStorage((prev) => {
-      return {
-        ...prev,
-        [key]: state,
-      };
-    });
-  }, []);
+  const clearState = useCallback(
+    (key: string) =>
+      setStorage((prev) => {
+        const newState = {...prev};
+        delete newState[key];
+        // Storage state migrate to local storage
+        setImmediate(() =>
+          AsyncStorage.setItem(RANDOM_KEY, JSON.stringify(newState)),
+        );
 
-  const clearState = useCallback((key: string) => {
-    setStorage((prev) => {
-      const temp = {...prev};
-      delete temp[key];
-      return temp;
-    });
-  }, []);
+        return newState;
+      }),
+    [],
+  );
 
   const state = useMemo<PersistedStateContextType>(
     () => ({
