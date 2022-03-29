@@ -12,7 +12,7 @@
 
 ## Introduce
 
-💾 Cacheable & persisted state in react-native
+💾 Simple persisted state in react-native
 
 🌏 Globally useable like redux, recoil...
 
