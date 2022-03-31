@@ -1,4 +1,4 @@
-import {useCallback, useContext, useEffect, useMemo} from 'react';
+import {useContext, useEffect, useMemo} from 'react';
 import {PersistedStateContext} from './PersistedStateProvider';
 
 function usePersistedState<T = undefined>(
@@ -31,12 +31,9 @@ function usePersistedState<T>(
     return initialState;
   }, [storage, key, initialState]);
 
-  const setState = useCallback(
-    (newState) => _setState(key, newState),
-    [_setState, key],
-  );
+  const setState = (newState: T) => _setState(key, newState);
 
-  const clearState = useCallback(() => _clearState(key), [key, _clearState]);
+  const clearState = () => _clearState(key);
 
   return [state, setState, clearState];
 }
