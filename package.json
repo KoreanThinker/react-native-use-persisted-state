@@ -1,7 +1,7 @@
 {
   "name": "react-native-use-persisted-state",
   "title": "React Native Use Persisted State",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple persisted state in react-native",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
