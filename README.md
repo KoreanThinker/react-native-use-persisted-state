@@ -14,7 +14,7 @@
 
 💾 Simple persisted state in react-native
 
-🌏 Globally useable like redux, recoil...
+🌏 Globally accessable like redux, recoil...
 
 🚀 No loading, Immediate synchronization
 
