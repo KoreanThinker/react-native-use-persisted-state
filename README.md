@@ -3,7 +3,9 @@
 [![npm version](https://badge.fury.io/js/react-native-use-persisted-state.svg)](https://www.npmjs.com/package/react-native-use-persisted-state)
 [![npm download](https://img.shields.io/npm/dt/react-native-use-persisted-state)](https://www.npmjs.com/package/react-native-use-persisted-state)
 [![License MIT](https://img.shields.io/github/license/KoreanThinker/react-native-use-persisted-state?style=plat)](LICENSE)
+
 ![Stars](https://img.shields.io/github/stars/KoreanThinker/react-native-use-persisted-state?style=social)
+![Twitter](https://img.shields.io/twitter/follow/koreanthinker?style=social)
 
 ## Preview
 
